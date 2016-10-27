@@ -35,8 +35,9 @@ your kitchen-cli is now ready to operate :fork_and_knife:
 #Make: 
 
 
-> :bulb: kitchen-cli `make blueprint` - Lets you backup your whole kitchen and store the backup inside your freezer.
+> :bulb: kitchen-cli `make blueprint` - Lets you backup your whole kitchen and store the backup inside your freezer. 
+                                        This command is useful when you implement kitchen to an existing project.
 
-> :bulb: kitchen-cli `make recipe` - Analyze all the ingredients on your table and check if they already exist inside                                        your kitchen, if some ingredients are not found it will ask the user to input the full path                                              to allocate the new ingredients inside your kitchen. This process will create `recipe.ini` and                                          store all the needed information to cook or unfreeze your pastries.
+> :bulb: kitchen-cli `make recipe` - Analyze all the ingredients on your table and check if they already exist inside                                        your kitchen, if some ingredients are not found it will ask the user to input the full path                                              to allocate the new ingredients inside your kitchen. This process will create `recipe.ini` and                                          store all the needed information to cook your ingredients or unfreeze your pastries.
 
 
