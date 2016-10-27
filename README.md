@@ -48,6 +48,6 @@ you can already smell the pastries, it is now time to cook :fire:
 > :bulb: kitchen-cli `oven cook pastries` - if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `oven cook pastries` will ask the user to input a name for this group of                                                   cooked pastries going into the freezer.
 
 
-#Unfreeze
+#Unfreeze:
 
 > :bulb: kitchen-cli `unfreeze` - roll back to a previous kitchen state by unfreezing the selected pastries from your freezer. This                                       process will also remove all the files that did not exist prior to this update by reading from `recipe.ini`
