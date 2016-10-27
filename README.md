@@ -22,3 +22,5 @@ The following analogies are used by kitchen-cli :
 
 > :bulb: Kitchen-CLI `build kitchen` - Lets you set the path to your project root folder.
 
+> :bulb: Kitchen-CLI `build freezer` - Lets you set the path to your freezer, this is where you store all of your pastries (tarball update files).
+
