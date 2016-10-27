@@ -40,6 +40,7 @@ your kitchen is now ready to operate :fork_and_knife:
 
 > :bulb: kitchen-cli `make recipe` - Analyze all the ingredients on your table and check if they already exist inside                                        your kitchen, if some ingredients are not found it will ask the user to input the full path                                              to allocate the new ingredients inside your kitchen. This process will create `recipe.ini` and                                          store all the needed information to cook your ingredients or unfreeze your pastries.
 
+you can already smell the pastries, it is now time to cook :fire:
 
 #Cook:
 
