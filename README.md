@@ -29,7 +29,7 @@ before we can start cooking we must first build up our kitchen...
 > :bulb: kitchen-cli `build table`   - Lets you set the path to your table, this is where you drop all of your ingredients.
 
 
-your kitchen-cli is now ready to operate :fork_and_knife:
+your kitchen is now ready to operate :fork_and_knife:
 
 
 #Make: 
