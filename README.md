@@ -1,6 +1,6 @@
 # kitchen-cli
 
-kitchen-cli is a simple and very basic version control software inside your command line embedded as a "cooking simulator".
+kitchen-cli is a simple and very basic version control software inside your command line embedded as a "cooking simulator"
 
 The following analogies are used by kitchen-cli :
 
