@@ -41,3 +41,7 @@ your kitchen is now ready to operate :fork_and_knife:
 > :bulb: kitchen-cli `make recipe` - Analyze all the ingredients on your table and check if they already exist inside                                        your kitchen, if some ingredients are not found it will ask the user to input the full path                                              to allocate the new ingredients inside your kitchen. This process will create `recipe.ini` and                                          store all the needed information to cook your ingredients or unfreeze your pastries.
 
 
+#Cook:
+
+
+> :bulb: kitchen-cli `oven cook pastries` - if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `oven cook pastries` will ask the user to input a name for this group of                                                   cooked pastries going into the freezer.
