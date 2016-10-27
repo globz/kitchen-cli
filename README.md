@@ -19,8 +19,11 @@ The following analogies are used by kitchen-cli :
 
 #Workflow:
 
+before we can start cooking we must first set up our kitchen...
 
-> :bulb: Kitchen-CLI `build kitchen` - Lets you set the path to your project root folder.
 
-> :bulb: Kitchen-CLI `build freezer` - Lets you set the path to your freezer, this is where you store all of your pastries (tarball update files).
+> :bulb: Kitchen-CLI `build kitchen` - Lets you set the path to your project root folder. 
 
+> :bulb: Kitchen-CLI `build freezer` - Lets you set the path to your freezer, this is where you store all of your pastries.
+
+> :bulb: Kitchen-CLI `build table` - Lets you set the path to your table, this is where you drop all of your ingredients.
