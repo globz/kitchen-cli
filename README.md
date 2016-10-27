@@ -20,3 +20,5 @@ The following analogies are used by kitchen-cli :
 #Workflow:
 
 
+> :bulb: Kitchen-CLI `build kitchen` - Lets you set the path to your project root folder.
+
