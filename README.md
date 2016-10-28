@@ -26,7 +26,7 @@ before we can start cooking we must first build up our kitchen...
 
 > :bulb: kitchen-cli `build freezer` - lets you set the path to your freezer, this is where you store all of your pastries.
 
-> :bulb: kitchen-cli `build table`   - lets you set the path to your table, this is where you drop all of your ingredients.
+> :bulb: kitchen-cli `build table`   - lets you set the path to your table, this is where you add all of your ingredients.
 
 
 your kitchen is now ready to operate :fork_and_knife:
