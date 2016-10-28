@@ -17,7 +17,7 @@ The following analogies are used by kitchen-cli :
 
 
 
-#Build:
+#build:
 
 before we can start cooking we must first build up our kitchen...
 
@@ -32,7 +32,12 @@ before we can start cooking we must first build up our kitchen...
 your kitchen is now ready to operate :fork_and_knife:
 
 
-#Make: 
+#add
+
+> :bulb: kitchen-cli `add ingredients` - Let the user add ingredients (update files) to his table.
+
+
+#make: 
 
 
 > :bulb: kitchen-cli `make blueprint` - lets you backup your whole kitchen and store the backup inside your freezer. 
@@ -42,12 +47,12 @@ your kitchen is now ready to operate :fork_and_knife:
 
 you can already smell the pastries, it is now time to cook :fire:
 
-#Cook:
+#cook:
 
 
 > :bulb: kitchen-cli `oven cook pastries` - if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `oven cook pastries` will ask the user to input a name for this group of                                                   cooked pastries going into the freezer.
 
 
-#Unfreeze:
+#unfreeze:
 
 > :bulb: kitchen-cli `unfreeze` - roll back to a previous kitchen state by unfreezing the selected pastries from your freezer. This                                       process will also remove all the files that did not exist prior to this update by reading from `recipe.ini`
