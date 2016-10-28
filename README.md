@@ -36,7 +36,7 @@ your kitchen is now ready to operate :fork_and_knife:
 
 #add
 
-now that we have have a kitchen we can start adding ingredients to our table :custard:
+now that we have have a working kitchen we can start adding ingredients to our table :custard:
 
 
 > :bulb: kitchen-cli `add ingredients` - Let the user add ingredients to his table.
