@@ -34,7 +34,7 @@ before we can start cooking we must first build up our kitchen...
 your kitchen is now ready to operate :fork_and_knife:
 
 
-#add
+#add:
 
 now that we have have a working kitchen we can start adding ingredients to our table :custard:
 
