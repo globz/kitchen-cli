@@ -19,7 +19,7 @@ The following analogies are used by kitchen-cli :
 
 #build:
 
-before we can start cooking we must first build up our kitchen...
+before we can start cooking we must first build up our kitchen...:wrench::nut_and_bolt:
 
 
 > :bulb: kitchen-cli `build kitchen` - lets you set the path to your project root folder and configure your kitchen.
