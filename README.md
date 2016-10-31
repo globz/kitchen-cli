@@ -17,8 +17,6 @@ The following analogies are used by kitchen-cli :
 
 ###Kitchen-cli user actions : 
 
-> examine
-
 > build
 
 > add
@@ -31,7 +29,6 @@ The following analogies are used by kitchen-cli :
 
 
 _Each actions have a subset of objects that you can interact within the current action context._
-
 
 
 #build:
@@ -55,6 +52,8 @@ your kitchen is now ready to operate :fork_and_knife:
 
 #add:
 
+**execute this command to get a list of objects for this given action : `kitchen add`**
+
 now that we have have a working kitchen we can start adding ingredients to our table :custard:
 
 
@@ -63,6 +62,7 @@ now that we have have a working kitchen we can start adding ingredients to our t
 
 #make: 
 
+**execute this command to get a list of objects for this given action : `kitchen make`**
 
 > :bulb: `kitchen make blueprint` - lets you backup your whole kitchen and store the backup inside your freezer. 
                                         This command is useful when you implement kitchen to an existing project.
@@ -73,6 +73,8 @@ you can already smell the pastries, it is now time to cook :fire:
 
 #cook:
 
+**execute this command to get a list of objects for this given action : `kitchen cook`**
+
 oven time!
 
 
@@ -80,5 +82,7 @@ oven time!
 
 
 #unfreeze:
+
+**execute this command to get a list of objects for this given action : `kitchen unfreeze`**
 
 > :bulb: `kitchen unfreeze` - roll back to a previous kitchen state by unfreezing the selected pastries from your freezer. This                                       process will also remove all the files that did not exist prior to this update by reading from `recipe.ini`
