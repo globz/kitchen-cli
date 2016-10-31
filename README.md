@@ -2,7 +2,7 @@
 
 kitchen-cli is a simple and very basic version control software embedded as an interactive "cooking simulator" :cake:
 
-This tool has obvious limitation and is aimed at solo developpers who want to manage a personal or small business project.
+__This tool has obvious limitation and is aimed at solo developpers who want to manage a personal or small business project.__
 
 
 The following analogies are used by kitchen-cli :
