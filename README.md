@@ -15,7 +15,7 @@ The following analogies are used by kitchen-cli :
 *  _recipe_      -> config file used by your oven to cook your pastries
 *  _blueprint_   -> a complete backup of your kitchen
 
-Kitchen-cli user actions : 
+###Kitchen-cli user actions : 
 
 > examine
 
@@ -30,19 +30,24 @@ Kitchen-cli user actions :
 > unfreeze
 
 
+_Each actions have a subset of objects that you can interact within the current action context._
+
+
 
 #build:
+
+**`kitchen build`**
 
 before we can start cooking we must first build up our kitchen...:wrench::nut_and_bolt:
 
 
-> :bulb: kitchen `build kitchen` - lets you set the path to your project root folder and configure your kitchen.
+> :bulb: `kitchen build kitchen` - lets you set the path to your project root folder and configure your kitchen.
 
-> :bulb: kitchen `build freezer` - lets you set the path to your freezer, this is where you store all of your pastries.
+> :bulb: `kitchen build freezer` - lets you set the path to your freezer, this is where you store all of your pastries.
 
-> :bulb: kitchen `build table`   - lets you set the path to your table, this is where you add all of your ingredients.
+> :bulb: `kitchen build table`   - lets you set the path to your table, this is where you add all of your ingredients.
 
-> :bulb: kitchen `build oven`    - lets you configure your oven so you can cook the perfect pastries for your taste.
+> :bulb: `kitchen build oven`    - lets you configure your oven so you can cook the perfect pastries for your taste.
 
 
 your kitchen is now ready to operate :fork_and_knife:
@@ -53,19 +58,16 @@ your kitchen is now ready to operate :fork_and_knife:
 now that we have have a working kitchen we can start adding ingredients to our table :custard:
 
 
-> :bulb: kitchen `add ingredients` - Let the user add ingredients to his table.
-
-
-
+> :bulb: `kitchen add ingredients` - Let the user add ingredients to his table.
 
 
 #make: 
 
 
-> :bulb: kitchen `make blueprint` - lets you backup your whole kitchen and store the backup inside your freezer. 
+> :bulb: `kitchen make blueprint` - lets you backup your whole kitchen and store the backup inside your freezer. 
                                         This command is useful when you implement kitchen to an existing project.
 
-> :bulb: kitchen `make recipe` - analyze all the ingredients on your table and check if they already exist inside                                        your kitchen, if some ingredients are not found it will ask the user to input the full path                                              to allocate the new ingredients inside your kitchen. This process will create `recipe.ini` and                                          store all the needed information to cook your ingredients or unfreeze your pastries.
+> :bulb: `kitchen make recipe` - analyze all the ingredients on your table and check if they already exist inside                                        your kitchen, if some ingredients are not found it will ask the user to input the full path                                              to allocate the new ingredients inside your kitchen. This process will create `recipe.ini` and                                          store all the needed information to cook your ingredients or unfreeze your pastries.
 
 you can already smell the pastries, it is now time to cook :fire:
 
@@ -74,9 +76,9 @@ you can already smell the pastries, it is now time to cook :fire:
 oven time!
 
 
-> :bulb: kitchen `cook pastries` -  if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `oven cook pastries` will ask the user to input a name for this group of                                                   cooked pastries going into the freezer.
+> :bulb: `kitchen cook pastries` -  if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `oven cook pastries` will ask the user to input a name for this group of                                                   cooked pastries going into the freezer.
 
 
 #unfreeze:
 
-> :bulb: kitchen `unfreeze` - roll back to a previous kitchen state by unfreezing the selected pastries from your freezer. This                                       process will also remove all the files that did not exist prior to this update by reading from `recipe.ini`
+> :bulb: `kitchen unfreeze` - roll back to a previous kitchen state by unfreezing the selected pastries from your freezer. This                                       process will also remove all the files that did not exist prior to this update by reading from `recipe.ini`
