@@ -36,7 +36,7 @@ _Each actions have a subset of objects that you can interact within the current 
 
 #build:
 
-**`kitchen build`**
+**execute this command to get a list of objects for this given action : `kitchen build`**
 
 before we can start cooking we must first build up our kitchen...:wrench::nut_and_bolt:
 
