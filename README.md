@@ -28,7 +28,7 @@ before we can start cooking we must first build up our kitchen...:wrench::nut_an
 
 > :bulb: kitchen-cli `build table`   - lets you set the path to your table, this is where you add all of your ingredients.
 
-> :bulb: kitchen-cli `build oven`    - lets you configure your oven so you can cook the perfect pastries for your taste .
+> :bulb: kitchen-cli `build oven`    - lets you configure your oven so you can cook the perfect pastries for your taste.
 
 
 your kitchen is now ready to operate :fork_and_knife:
@@ -55,12 +55,12 @@ now that we have have a working kitchen we can start adding ingredients to our t
 
 you can already smell the pastries, it is now time to cook :fire:
 
-#oven:
+#cook:
 
 oven time!
 
 
-> :bulb: kitchen-cli `oven cook pastries` - if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `oven cook pastries` will ask the user to input a name for this group of                                                   cooked pastries going into the freezer.
+> :bulb: kitchen-cli `cook pastries` -  if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `oven cook pastries` will ask the user to input a name for this group of                                                   cooked pastries going into the freezer.
 
 
 #unfreeze:
