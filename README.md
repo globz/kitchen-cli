@@ -18,10 +18,15 @@ The following analogies are used by kitchen-cli :
 Kitchen-cli user actions : 
 
 > examine
+
 > build
+
 > add
+
 > make
+
 > cook
+
 > unfreeze
 
 
