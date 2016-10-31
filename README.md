@@ -75,10 +75,10 @@ you can already smell the pastries, it is now time to cook :fire:
 
 **execute this command to get a list of objects for this given action : `kitchen cook`**
 
-oven time!
+cooking time! Please note that cooking pastries relies on your oven configuration.
 
 
-> :bulb: `kitchen cook pastries` -  if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `oven cook pastries` will ask the user to input a name for this group of                                                   cooked pastries going into the freezer.
+> :bulb: `kitchen cook pastries` -  if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `cook pastries` will ask the user to input a name for this group of                                                       cooked pastries going into the freezer.
 
 
 #unfreeze:
