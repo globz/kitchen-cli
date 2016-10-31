@@ -35,7 +35,7 @@ _Each actions have a subset of objects that you can interact within the current 
 
 **execute this command to get a list of objects for this given action : `kitchen build`**
 
-before we can start cooking we must first build up our kitchen...:wrench::nut_and_bolt:
+*Before we can start cooking we must first build up our kitchen...:wrench::nut_and_bolt:*
 
 
 > :bulb: `kitchen build kitchen` - lets you set the path to your project root folder and configure your kitchen.
@@ -47,14 +47,14 @@ before we can start cooking we must first build up our kitchen...:wrench::nut_an
 > :bulb: `kitchen build oven`    - lets you configure your oven so you can cook the perfect pastries for your taste.
 
 
-your kitchen is now ready to operate :fork_and_knife:
+*Your kitchen is now ready to operate :fork_and_knife:*
 
 
 #add:
 
 **execute this command to get a list of objects for this given action : `kitchen add`**
 
-now that we have have a working kitchen we can start adding ingredients to our table :custard:
+*Now that we have have a working kitchen we can start adding ingredients to our table :custard:*
 
 
 > :bulb: `kitchen add ingredients` - Let the user add ingredients to his table.
@@ -69,13 +69,13 @@ now that we have have a working kitchen we can start adding ingredients to our t
 
 > :bulb: `kitchen make recipe` - analyze all the ingredients on your table and check if they already exist inside                                        your kitchen, if some ingredients are not found it will ask the user to input the full path                                              to allocate the new ingredients inside your kitchen. This process will create `recipe.ini` and                                          store all the needed information to cook your ingredients or unfreeze your pastries.
 
-you can already smell the pastries, it is now time to cook :fire:
+*You can already smell the pastries, it is now time to cook :fire:*
 
 #cook:
 
 **execute this command to get a list of objects for this given action : `kitchen cook`**
 
-cooking time! Please note that cooking pastries relies on your oven configuration.
+*Cooking time! Please note that cooking pastries relies on your oven configuration.*
 
 
 > :bulb: `kitchen cook pastries` -  if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                 This will cook all the ingredients from your table and update your kitchen.                                                             This process will tarball the ingredients and `recipe.ini` then move them to                                                             your freezer. `cook pastries` will ask the user to input a name for this group of                                                       cooked pastries going into the freezer.
