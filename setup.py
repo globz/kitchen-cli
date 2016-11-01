@@ -28,7 +28,7 @@ class RunTests(Command):
 
     def run(self):
         """Run all tests!"""
-        errno = call(['py.test', '--cov=skele', '--cov-report=term-missing'])
+        errno = call(['py.test', '--cov=kitchen', '--cov-report=term-missing'])
         raise SystemExit(errno)
 
 
@@ -66,5 +66,5 @@ setup(
             'kitchen=kitchen.cli:main',
         ],
     },
-    cmdclass = {'test': RunTests},
+    cmdclass = {'test': RunTests},    
 )

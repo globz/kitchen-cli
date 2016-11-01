@@ -12,11 +12,13 @@ development dependencies*), the command you'll want to run is::
 
     $ pip install -e .[test]
 
-If you'd like to run all tests for this project you can run the following command::
+
+If you'd like to run all tests for this project, you can run the following command::
 
     $ python setup.py test
 
 -----
+
 The following analogies are used by kitchen-cli :
 
 *  _kitchen_     -> your project folder
