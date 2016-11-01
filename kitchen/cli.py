@@ -1,5 +1,5 @@
 """
-skele
+kitchen-cli
 
 Usage:
   kitchen hello
