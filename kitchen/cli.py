@@ -1,8 +1,9 @@
 """
-kitchen-cli
+kitchen
 
 Usage:
   kitchen hello
+  kitchen build
   kitchen -h | --help
   kitchen --version
 
@@ -11,11 +12,11 @@ Options:
   --version                         Show version.
 
 Examples:
-  kitchen hello
+  kitchen build
 
 Help:
-  For help using this tool, please open an issue on the Github repository:
-  https://github.com/rdegges/skele-cli
+  For help using this tool, please refer to README.md or open an issue on the Github repository:
+  https://github.com/globz/kitchen-cli
 """
 
 
