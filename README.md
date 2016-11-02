@@ -1,6 +1,6 @@
 # kitchen-cli
 
-kitchen-cli is a simple and very basic version control software embedded as an interactive "cooking simulator" :cake:
+kitchen-cli is a basic version control software baked into a "cooking simulator" :cake:
 
 __WARNING:: This tool has obvious limitations and is currently in development for specific use case related to my personal projects.__
 
@@ -13,7 +13,7 @@ development dependencies*), the command you'll want to run is::
     $ pip install -e .[test]
 
 
-If you'd like to run all tests for this project, you can run the following command::
+If you'd like to run all tests unit for this project you can run the following command::
 
     $ python setup.py test
 
@@ -42,7 +42,7 @@ The following analogies are used by kitchen-cli :
 > unfreeze
 
 
-_Each actions have a subset of objects that you can interact within the current action context._
+_Each actions have a subset of objects that you can interact with within the current action context._
 
 
 #build:
@@ -52,13 +52,13 @@ _Each actions have a subset of objects that you can interact within the current 
 *Before we can start cooking we must first build up our kitchen...:wrench::nut_and_bolt:*
 
 
-> :bulb: `kitchen build kitchen` - lets you set the path to your project root folder and configure your kitchen.
+> :bulb: `build kitchen` - lets you set the path to your project root folder and configure your kitchen.
 
-> :bulb: `kitchen build freezer` - lets you set the path to your freezer, this is where you store all of your pastries.
+> :bulb: `build freezer` - lets you set the path to your freezer, this is where you store all of your pastries.
 
-> :bulb: `kitchen build table`   - lets you set the path to your table, this is where you add all of your ingredients.
+> :bulb: `build table`   - lets you set the path to your table, this is where you add all of your ingredients.
 
-> :bulb: `kitchen build oven`    - lets you configure your oven so you can cook the perfect pastries for your taste.
+> :bulb: `build oven`    - lets you configure your oven so you can cook the perfect pastries for your taste.
 
 
 *Your kitchen is now ready to operate :fork_and_knife:*

@@ -35,7 +35,7 @@ class RunTests(Command):
 setup(
     name = 'kitchen',
     version = __version__,
-    description = 'A simple and very basic version control software',
+    description = 'A basic version control software baked into a "cooking simulator"',
     long_description = long_description,
     url = 'https://github.com/globz/kitchen-cli',
     author = 'globz',
