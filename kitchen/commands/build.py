@@ -8,7 +8,7 @@ from json import dumps
 
 from .base import Base
 
-from .classes import bcolors
+from .classes import termcolor
 
 config = SafeConfigParser()
 dir = os.path.dirname(__file__)
@@ -28,7 +28,7 @@ class Build(Base):
             print 'The following kitchens currently exist:' 
             print config.items('kitchens')
 
-        print bcolors.WARNING +'You can build the following objects : (kitchen,freezer,table,oven)'+ bcolors.ENDC
+        print termcolor.WARNING +'You can build the following objects : (kitchen,freezer,table,oven)'+ termcolor.ENDC
         print 'usage : build (object)'
         print 'type exit to abort'
 
@@ -59,8 +59,8 @@ class Build(Base):
 
                       print ('Kitchen built.')
                       print ('The following files were created/updated : ')
-                      print bcolors.OKGREEN+kitchen_path
-                      print 'updated config.ini : '+kitchen_alias+' = '+config.get('kitchens',kitchen_alias)+ bcolors.ENDC
+                      print termcolor.OKGREEN+kitchen_path
+                      print 'updated config.ini : '+kitchen_alias+' = '+config.get('kitchens',kitchen_alias)+ termcolor.ENDC
                       break
 
                    else:
