@@ -2,8 +2,8 @@
 kitchen
 
 Usage:
-  kitchen build
-  kitchen hello
+  kitchen build [<kitchen>,<table>,<freezer>,<oven>]
+  kitchen hello [<kitchen>,<freezer>]
   kitchen -h | --help
   kitchen --version
 

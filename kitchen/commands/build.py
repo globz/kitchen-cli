@@ -2,6 +2,8 @@
 
 import os.path
 
+import re
+
 from ConfigParser import SafeConfigParser
 
 from json import dumps
@@ -10,15 +12,25 @@ from .base import Base
 
 from .classes import termcolor
 
-#config = SafeConfigParser()
-#dir = os.path.dirname(__file__)
-#kitchen_conf = os.path.join(dir,'..','config.ini')
 
 
 class Build(Base):
     
 
     def run(self):
+
+        for key, value in self.options.items(): #read optional command argument if supplied by the user and jump to the appropriate menu
+
+            if value == 'kitchen':
+                 object = 'kitchen' 
+            if value == 'freezer':
+                 object = 'freezer'
+            if value == 'table':
+                 object = 'table'
+            if value == 'oven':
+                 object = 'oven'
+            if value == 'exit':
+                 object = 'exit'
 
         config_ini_parser  = SafeConfigParser() #parser for config.ini
         kitchen_ini_parser = SafeConfigParser() #parser for kitchen.ini
@@ -36,21 +48,29 @@ class Build(Base):
             print termcolor.OKGREEN +'The following kitchens currently exist:'+ termcolor.ENDC 
             print  config_ini_parser.items('kitchens')
 
-        print termcolor.WARNING +'You can build the following objects : (kitchen,freezer,table,oven)'+ termcolor.ENDC
-        print 'usage : build (object)'
+        print termcolor.WARNING +'You can build the following objects : (<kitchen>,<freezer>,<table>,<oven>)'+ termcolor.ENDC
+        print 'usage :<object>'
         print 'type exit to abort'
 
         while True:
            try:
-               object = str(raw_input("Please select the object you would like to build : "))
+               object        #check if object is already defined
+           except NameError: 
+               object = None #if object was not defined by optional command arguments then set it to None and read from prompt
+
+               if object is None:
+                  object = str(raw_input("Please select the object you would like to build : "))
+
            except OSError as err:
                 print("OS error: {0}".format(err))
                  
            else:
-               if object == 'build kitchen':
+               if object == 'kitchen':
                    kitchen_ini_path = str(raw_input("Type the full path of your project folder so we can build a kitchen : "))
+                   
                    if os.path.exists(kitchen_ini_path):
-                      """add regex so we can remove path like this : /home/dev/project/ """
+                      
+                      kitchen_ini_path = re.sub('[\/]$','',kitchen_ini_path)# remove / from path (/home/dev/project/ => /home/dev/project)
                       kitchen_ini_path = kitchen_ini_path+'/kitchen.ini'
                       open(kitchen_ini_path,'w').close() #save kitchen.ini to project folder 
                       
@@ -88,19 +108,20 @@ class Build(Base):
                    else:
                        print ('input path is wrong')
 
-               if object == 'build freezer':
+               if object == 'freezer':
                    print ('Freezer built.')
                    break
                
-               if object == 'build table':
+               if object == 'table':
                    print ('Table built.') 
                    break
 
-               if object == 'build oven':
+               if object == 'oven':
                    print ('Oven built.')
                    break
 
                if object == 'exit':
+                  print ('Aborting...')
                   break
 
                else:
