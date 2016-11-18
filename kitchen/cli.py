@@ -3,6 +3,10 @@ kitchen
 
 Usage:
   kitchen build [<kitchen>,<table>,<freezer>,<oven>]
+  kitchen add   [<ingredients>]
+  kitchen make  [<blueprint>,<recipe>]
+  kitchen cook  [<pastries>]
+  kitchen unfreeze
   kitchen hello [<kitchen>,<freezer>]
   kitchen -h | --help
   kitchen --version
