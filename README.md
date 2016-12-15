@@ -79,7 +79,7 @@ _Each actions have a subset of objects that you can interact with within the cur
 **execute this command to get a list of objects for this given action : `kitchen make`**
 
 > :bulb: `kitchen make blueprint` - lets you backup your whole kitchen and store the backup inside your freezer. 
-                                    This command is useful when you implement kitchen to an existing project.
+                                    This command is useful when you implement kitchen-cli to an existing project.
 
 > :bulb: `kitchen make recipe` - analyze all the ingredients on your table and check if they already exist inside your kitchen, 
                                  if some ingredients are not found it will ask the user to input the full path to allocate the new 

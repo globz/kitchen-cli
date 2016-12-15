@@ -47,7 +47,7 @@ class Build(Base):
 
         config_ini_parser.read(config_ini_path) #read from config.ini
 
-        print termcolor.BOLD +'You are hungry for pastries...'+ termcolor.ENDC
+        print termcolor.BOLD +'\nYou are hungry for pastries...'+ termcolor.ENDC
 
         if 'kitchens' not in config_ini_parser.sections():
             print 'oh no! The kitchen is nowhere to be found!'
@@ -56,14 +56,15 @@ class Build(Base):
             print termcolor.OKGREEN +'The following kitchens alias(es) currently exist:'+ termcolor.ENDC
             print  config_ini_parser.items('kitchens')
 
-        print termcolor.WARNING +'You can build the following objects : (<kitchen>,<freezer>,<table>,<oven>)'+ termcolor.ENDC
+        print termcolor.WARNING +'\nYou can build the following objects : (<kitchen>,<freezer>,<table>,<oven>)'+ termcolor.ENDC
         print 'usage :<object>'
-        print 'type exit to abort'
+        print 'type exit to abort \n'
 
         while True:
 
            try:
                object        #check if object is already defined
+
            except NameError:
                object = None #if object was not defined by optional command arguments then set it to None and read from prompt
 
@@ -85,7 +86,7 @@ class Build(Base):
                       kitchen_ini_path = kitchen_ini_path+'/kitchen.ini'
                       open(kitchen_ini_path,'w').close() #save kitchen.ini to project folder
 
-                      print 'A kitchen alias is needed so you can walk into different kitchens (useful when managing multiple projects)'
+                      print '\nA kitchen alias is needed so you can walk into different kitchens (useful when managing multiple projects)'
                       kitchen_alias = str(raw_input("Input an alias for this kitchen : "))
 
 
@@ -113,22 +114,27 @@ class Build(Base):
                            kitchen_ini_parser.write(f)
                            f.close()
 
-                      print ('Kitchen built.')
-                      print ('The following files were created/updated : ')
+                      print ('\nKitchen built.')
+                      print ('\nThe following files were created/updated : \n')
                       print termcolor.OKGREEN+kitchen_ini_path
-                      print 'Updated config.ini : '+kitchen_alias+' = '+config_ini_parser.get('kitchens',kitchen_alias)+ termcolor.ENDC
-                      print ('You can edit kitchen.ini manually - see https://github.com/globz/kitchen-cli for configuration help.')
+                      print '+ [blueprint] exclusions = '+kitchen_ini_parser.get('blueprint','exclusions')
+                      print '+ [blueprint] auto-append = '+kitchen_ini_parser.get('blueprint','auto-append')+'\n'
+                      print 'Updated config.ini : '+kitchen_alias+' = '+config_ini_parser.get('kitchens',kitchen_alias)+ termcolor.ENDC+'\n'
+                      print ('All parameters values are configured to "unset" by default!')
+                      print ('You MUST edit the default parameters values inside kitchen.ini manually - see https://github.com/globz/kitchen-cli for configuration help.\n')
                       break
 
                    else:
                        print ('input path is wrong')
 
                if object == 'freezer':
+
                    if 'kitchens' not in config_ini_parser.sections():
                         print ('You cannot build a freezer without a kitchen...')
                         break
 
                    print ('Please type the desired kitchen alias so you can walk to the appropriate location... ')
+
                    kitchen_alias = str(raw_input("Walk to kitchen alias : "))
 
 
@@ -140,13 +146,16 @@ class Build(Base):
                       break
 
 
-                   print ('A freezer is needed so you can store your cooked pastries...')
+                   print ('\nA freezer is needed so you can store your cooked pastries...\n')
                    print ('Provide the full path and the name of the folder that will host your freezer, if the directory does not exist it will be created.')
+
                    freezer_path = str(raw_input("Input full path to freezer directory : "))
+
                    freezer_path = re.sub('[\/]$','',freezer_path)# remove last / from path (/home/dev/project/freezer/ => /home/dev/project/freezer
 
                    if not os.path.exists(freezer_path):
-                       os.makedirs(freezer_path) #create folder is it does not exist
+                       #create folder if it does not exist
+                       os.makedirs(freezer_path) 
 
 
                    kitchen_ini_parser.read(kitchen_ini_path) #read from kitchen.ini
@@ -163,27 +172,113 @@ class Build(Base):
                            kitchen_ini_parser.write(f)
                            f.close()
 
-                   print ('Freezer built.')
+                   print ('\nFreezer built.')
+                   print ('\nThe following file was created/updated : \n')
+                   print termcolor.OKGREEN+kitchen_ini_path
+                   print '+ [freezer] path = '+kitchen_ini_parser.get('freezer','path')+ termcolor.ENDC+'\n'
                    break
 
 
                if object == 'table':
+
                     if 'kitchens' not in config_ini_parser.sections():
                          print ('You cannot build a table without a kitchen...')
                          break
 
-                    print ('Table built.')
+                    print ('Please type the desired kitchen alias so you can walk to the appropriate location... ')
+ 
+                    kitchen_alias = str(raw_input("Walk to kitchen alias : "))
+ 
+
+                    if config_ini_parser.has_option('kitchens',kitchen_alias):
+                       kitchen_ini_path = config_ini_parser.get('kitchens',kitchen_alias) #retrieve kitchen.ini from current selected kitchen alias
+
+                    else:
+                        print ('This kitchen alias does not exist!')
+                        break
+
+
+                    print ('\nA table is needed so you can place your ingredients and prepare your pastries...\n')
+                    print ('Provide the full path and the name of the folder that will host your table, if the directory does not exist it will be created.')
+
+                    table_path = str(raw_input("Input full path to table directory : "))
+
+                    table_path = re.sub('[\/]$','',table_path)# remove last / from path (/home/dev/project/table/ => /home/dev/project/table
+
+                    if not os.path.exists(table_path):
+                        #create folder if it does not exist
+                        os.makedirs(table_path) 
+
+
+                    kitchen_ini_parser.read(kitchen_ini_path) #read from kitchen.ini
+
+
+                    if 'table' not in kitchen_ini_parser.sections(): #add new section to kitchen.ini if it does not exist (table)
+                       kitchen_ini_parser.add_section('table')
+
+
+                    kitchen_ini_parser.set('table','path',table_path)
+
+
+                    with open(kitchen_ini_path,'w') as f: #save new section (table) to kitchen.ini
+                            kitchen_ini_parser.write(f)
+                            f.close()
+
+                    print ('\nTable built.')
+                    print ('\nThe following file was created/updated : \n')
+                    print termcolor.OKGREEN+kitchen_ini_path
+                    print '+ [table] path =  '+kitchen_ini_parser.get('table','path')+ termcolor.ENDC+'\n'
                     break
+ 
 
                if object == 'oven':
+
                     if 'kitchens' not in config_ini_parser.sections():
                          print ('You cannot build an oven without a kitchen...')
                          break
 
-                    print ('Oven built.')
+                    print ('Please type the desired kitchen alias so you can walk to the appropriate location... ')
+ 
+                    kitchen_alias = str(raw_input("Walk to kitchen alias : "))
+ 
+
+                    if config_ini_parser.has_option('kitchens',kitchen_alias):
+                       kitchen_ini_path = config_ini_parser.get('kitchens',kitchen_alias) #retrieve kitchen.ini from current selected kitchen alias
+
+                    else:
+                        print ('This kitchen alias does not exist!')
+                        break
+
+
+                    kitchen_ini_parser.read(kitchen_ini_path) #read from kitchen.ini
+                    
+ 
+                    if 'oven' not in kitchen_ini_parser.sections(): #add new section to kitchen.ini if it does not exist (table)
+                       kitchen_ini_parser.add_section('oven')
+
+
+                    kitchen_ini_parser.set('oven','auto-append','unset')
+                    kitchen_ini_parser.set('oven','auto-commit','unset')
+                    kitchen_ini_parser.set('oven','cookbook','unset')
+
+
+                    with open(kitchen_ini_path,'w') as f: #save new section (oven) to kitchen.ini
+                            kitchen_ini_parser.write(f)
+                            f.close()
+
+                   
+                    print ('\nOven built.')
+                    print ('\nThe following files were created/updated : \n')
+                    print termcolor.OKGREEN+kitchen_ini_path
+                    print '+ [oven] auto-append = ' +kitchen_ini_parser.get('oven','auto-append')
+                    print '+ [oven] auto-commit = ' +kitchen_ini_parser.get('oven','auto-commit')
+                    print '+ [oven] cookbook = '    +kitchen_ini_parser.get('oven','cookbook')+ termcolor.ENDC+'\n'
+                    print ('All parameters values are configured to "unset" by default!')
+                    print ('You MUST edit the default parameters values inside kitchen.ini manually - see https://github.com/globz/kitchen-cli for configuration help.\n')
                     break
 
                if object == 'exit':
+
                     print ('Aborting...')
                     break
 
