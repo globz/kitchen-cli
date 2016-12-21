@@ -56,7 +56,7 @@ class Build(Base):
             print termcolor.OKGREEN +'The following kitchens alias(es) currently exist:'+ termcolor.ENDC
             print  config_ini_parser.items('kitchens')
 
-        print termcolor.WARNING +'\nYou can build the following objects : (<kitchen>,<freezer>,<table>,<oven>)'+ termcolor.ENDC
+        print termcolor.WARNING +'\nYou can build the following objects : [<kitchen>,<freezer>,<table>,<oven>]'+ termcolor.ENDC
         print 'usage :<object>'
         print 'type exit to abort \n'
 
@@ -80,6 +80,13 @@ class Build(Base):
                if object == 'kitchen':
                    kitchen_ini_path = str(raw_input("Type the full path of your project folder so we can build a kitchen : "))
 
+
+                   if kitchen_ini_path == 'exit':
+
+                    print ('Aborting...')
+                    break                   
+
+
                    if os.path.exists(kitchen_ini_path):
 
                       kitchen_ini_path = re.sub('[\/]$','',kitchen_ini_path)# remove last / from path (/home/dev/project/ => /home/dev/project)
@@ -88,6 +95,12 @@ class Build(Base):
 
                       print '\nA kitchen alias is needed so you can walk into different kitchens (useful when managing multiple projects)'
                       kitchen_alias = str(raw_input("Input an alias for this kitchen : "))
+
+
+                      if kitchen_alias == 'exit':
+
+                       print ('Aborting...')
+                       break                   
 
 
                       if 'kitchens' not in config_ini_parser.sections(): #add new section to config.ini if it does not exist (kitchens)
@@ -138,6 +151,12 @@ class Build(Base):
                    kitchen_alias = str(raw_input("Walk to kitchen alias : "))
 
 
+                   if kitchen_alias == 'exit':
+
+                       print ('Aborting...')
+                       break                   
+
+
                    if config_ini_parser.has_option('kitchens',kitchen_alias):
                       kitchen_ini_path = config_ini_parser.get('kitchens',kitchen_alias) #retrieve kitchen.ini from current selected kitchen alias
 
@@ -150,6 +169,13 @@ class Build(Base):
                    print ('Provide the full path and the name of the folder that will host your freezer, if the directory does not exist it will be created.')
 
                    freezer_path = str(raw_input("Input full path to freezer directory : "))
+
+
+                   if freezer_path == 'exit':
+
+                       print ('Aborting...')
+                       break
+
 
                    freezer_path = re.sub('[\/]$','',freezer_path)# remove last / from path (/home/dev/project/freezer/ => /home/dev/project/freezer
 
@@ -190,6 +216,12 @@ class Build(Base):
                     kitchen_alias = str(raw_input("Walk to kitchen alias : "))
  
 
+                    if kitchen_alias == 'exit':
+
+                       print ('Aborting...')
+                       break
+
+
                     if config_ini_parser.has_option('kitchens',kitchen_alias):
                        kitchen_ini_path = config_ini_parser.get('kitchens',kitchen_alias) #retrieve kitchen.ini from current selected kitchen alias
 
@@ -202,6 +234,13 @@ class Build(Base):
                     print ('Provide the full path and the name of the folder that will host your table, if the directory does not exist it will be created.')
 
                     table_path = str(raw_input("Input full path to table directory : "))
+
+
+                    if table_path == 'exit':
+
+                       print ('Aborting...')
+                       break
+
 
                     table_path = re.sub('[\/]$','',table_path)# remove last / from path (/home/dev/project/table/ => /home/dev/project/table
 
@@ -242,6 +281,12 @@ class Build(Base):
                     kitchen_alias = str(raw_input("Walk to kitchen alias : "))
  
 
+                    if kitchen_alias == 'exit':
+
+                       print ('Aborting...')
+                       break
+
+
                     if config_ini_parser.has_option('kitchens',kitchen_alias):
                        kitchen_ini_path = config_ini_parser.get('kitchens',kitchen_alias) #retrieve kitchen.ini from current selected kitchen alias
 
@@ -268,6 +313,7 @@ class Build(Base):
 
                    
                     print ('\nOven built.')
+                    print ('You are now able to cook pastries!')
                     print ('\nThe following files were created/updated : \n')
                     print termcolor.OKGREEN+kitchen_ini_path
                     print '+ [oven] auto-append = ' +kitchen_ini_parser.get('oven','auto-append')
