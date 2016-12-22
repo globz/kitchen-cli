@@ -176,8 +176,9 @@ class Build(Base):
                        print ('Aborting...')
                        break
 
-
-                   freezer_path = re.sub('[\/]$','',freezer_path)# remove last / from path (/home/dev/project/freezer/ => /home/dev/project/freezer
+                   if not re.search('[\/]$',freezer_path):
+                          freezer_path = freezer_path+'/' #add / to freezer path because it was not found (/home/dev/project/freezer => /home/dev/project/freezer/)
+                   
 
                    if not os.path.exists(freezer_path):
                        #create folder if it does not exist
@@ -241,8 +242,8 @@ class Build(Base):
                        print ('Aborting...')
                        break
 
-
-                    table_path = re.sub('[\/]$','',table_path)# remove last / from path (/home/dev/project/table/ => /home/dev/project/table
+                    if not re.search('[\/]$',table_path):
+                           table_path = table_path+'/' #add / to table path because it was not found (/home/dev/project/table => /home/dev/project/table/)
 
                     if not os.path.exists(table_path):
                         #create folder if it does not exist

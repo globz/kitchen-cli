@@ -71,7 +71,7 @@ _Each actions have a subset of objects that you can interact with within the cur
 *Now that we have have a working kitchen we can start adding ingredients to our table :custard:*
 
 
-> :bulb: `kitchen add ingredients` - Let the user add ingredients to his table.
+> :bulb: `kitchen add ingredient` - Let the user add ingredient to his table.
 
 
 #make: 
