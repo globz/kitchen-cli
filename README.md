@@ -66,7 +66,7 @@ _Each actions have a subset of objects that you can interact with within the cur
 
 #add:
 
-**execute this command to get a list of objects for this given action : `kitchen add`**
+**execute this command to bring up the interactive menu : `kitchen add`**
 
 *Now that we have have a working kitchen we can start adding ingredients to our table :custard:*
 
