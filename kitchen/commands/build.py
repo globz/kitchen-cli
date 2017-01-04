@@ -108,8 +108,14 @@ class Build(Base):
 
                       config_ini_parser.set('kitchens', kitchen_alias, kitchen_ini_path)
 
+                      if 'utensil' not in config_ini_parser.sections(): #add new section to config.ini if it does not exist (utensil)
+                          config_ini_parser.add_section('utensil')
+                          config_ini_parser.set('utensil','auto-add','unset')
+                          config_ini_parser.set('utensil','auto-alias','unset')
+            
+
                       with open(config_ini_path, 'w') as f: 
-                           #save new kitchen to config.ini
+                           #save new kitchen/utensil to config.ini
                            config_ini_parser.write(f)
                            f.close()
 
@@ -121,7 +127,7 @@ class Build(Base):
 
                       kitchen_ini_parser.set('blueprint','exclusions','unset')
                       kitchen_ini_parser.set('blueprint','auto-append','unset')
-
+                      
                       with open(kitchen_ini_path,'w') as f: 
                            #save new section (blueprint) to kitchen.ini
                            kitchen_ini_parser.write(f)
@@ -132,9 +138,12 @@ class Build(Base):
                       print termcolor.OKGREEN+kitchen_ini_path
                       print '+ [blueprint] exclusions = '+kitchen_ini_parser.get('blueprint','exclusions')
                       print '+ [blueprint] auto-append = '+kitchen_ini_parser.get('blueprint','auto-append')+'\n'
-                      print 'Updated config.ini : '+kitchen_alias+' = '+config_ini_parser.get('kitchens',kitchen_alias)+ termcolor.ENDC+'\n'
+                      print config_ini_path
+                      print '+ [kitchens] '+kitchen_alias+' = '+config_ini_parser.get('kitchens',kitchen_alias)
+                      print '+ [utensil] auto-add = '+config_ini_parser.get('utensil','auto-add')
+                      print '+ [utensil] auto-alias = '+config_ini_parser.get('utensil','auto-alias')+ termcolor.ENDC +'\n'
                       print ('All parameters values are configured to "unset" by default!')
-                      print ('You MUST edit the default parameters values inside kitchen.ini manually - see https://github.com/globz/kitchen-cli for configuration help.\n')
+                      print ('You MUST edit the default parameters values inside kitchen.ini/config.ini manually - see https://github.com/globz/kitchen-cli for configuration help.\n')
                       break
 
                    else:

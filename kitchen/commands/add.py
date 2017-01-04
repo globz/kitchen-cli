@@ -54,8 +54,16 @@ class Add(Base):
 
         print ('\nPlease type the desired kitchen alias so you can walk to the appropriate location... ')
 
-        kitchen_alias = str(raw_input("Walk to kitchen alias : "))
-
+        if config_ini_parser.has_option('utensil','auto-alias'):
+           auto_alias = config_ini_parser.get('utensil','auto-alias') #retrieve value for utensil parameters :: auto-alias
+        
+        if auto_alias =='unset':
+           kitchen_alias = str(raw_input("Walk to kitchen alias : "))
+       
+        else:
+            #auto-alias is currently enabled so lets try this alias
+            kitchen_alias = auto_alias
+            print termcolor.WARNING +'\nUtensil parameter :: auto-alis is currently enabled and the following alias has been select: '+auto_alias+termcolor.ENDC
 
         if config_ini_parser.has_option('kitchens',kitchen_alias):
            kitchen_ini_path = config_ini_parser.get('kitchens',kitchen_alias) #retrieve kitchen.ini from current selected kitchen alias
@@ -97,20 +105,29 @@ class Add(Base):
 
 
         else:
-            print 'The following ingredient has already been selected: '+termcolor.OKBLUE +ingredient+ termcolor.ENDC +'\nWould you like to add it to your table?'
-            copy_prompt = str(raw_input("(y/n) : "))
-            
-            if copy_prompt == 'y':
-               copyfile(ingredient,table_path+ingredient) #the ingredient is now safely copied to a kitchen table
+            if config_ini_parser.has_option('utensil','auto-add'):
+               auto_add = config_ini_parser.get('utensil','auto-add') #retrieve value for utensil parameters :: auto-add
 
-               print termcolor.OKGREEN +'\nYou added the following ingredient to your kitchen table: '+ingredient+ termcolor.ENDC
+            if auto_add =='unset':
+               print 'The following ingredient has already been selected: '+termcolor.OKBLUE +ingredient+ termcolor.ENDC +'\nWould you like to add it to your table?'
+               copy_prompt = str(raw_input("(y/n) : "))
+            
+               if copy_prompt == 'y':
+                  copyfile(ingredient,table_path+ingredient) #the ingredient is now safely copied to a kitchen table
+
+                  print termcolor.OKGREEN +'\nYou added the following ingredient to your kitchen table: '+ingredient+ termcolor.ENDC
                
 
-            if copy_prompt == 'n':
-               print 'Aborting...'
-               raise SystemExit
+               if copy_prompt == 'n':
+                  print 'Aborting...'
+                  raise SystemExit
 
-
+            else:
+                #auto-add is currently enabled so lets copy the file without prompting for approval
+                print 'The following ingredient has already been selected: '+termcolor.OKBLUE +ingredient+ termcolor.ENDC
+                print termcolor.WARNING +'\nUtensil parameter :: auto-add is currently enabled!'+termcolor.ENDC
+                copyfile(ingredient,table_path+ingredient) #the ingredient is now safely copied to a kitchen table
+                print termcolor.OKGREEN +'\nYou added the following ingredient to your kitchen table: '+ingredient+ termcolor.ENDC
 
 
 
