@@ -7,7 +7,7 @@ Usage:
   kitchen make  [<blueprint>,<recipe>]
   kitchen cook  [<pastries>]
   kitchen unfreeze
-  kitchen hello [<kitchen>,<freezer>]
+  kitchen utensils
   kitchen -h | --help
   kitchen --version
 
