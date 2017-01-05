@@ -41,6 +41,7 @@ The following analogies are used by kitchen-cli :
 
 > unfreeze
 
+> untensils
 
 _Each actions have a subset of objects that you can interact with within the current action context._
 
@@ -107,6 +108,7 @@ _Each actions have a subset of objects that you can interact with within the cur
 
 #utensils:
 
+**execute this command to get a state overview of all available utensils : `kitchen utensils`**
 **edit the following file to enable utensils : `kitchen/config.ini`**
 
 > :bulb: `auto-alias` - if this utensil is enabled each actions will automatically refer to this value when selecting a kitchen alias.
