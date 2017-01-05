@@ -91,8 +91,7 @@ class Build(Base):
 
                       kitchen_ini_path = re.sub('[\/]$','',kitchen_ini_path)# remove last / from path (/home/dev/project/ => /home/dev/project)
                       kitchen_ini_path = kitchen_ini_path+'/kitchen.ini'
-                      open(kitchen_ini_path,'w').close() #save kitchen.ini to project folder
-
+                      
                       print '\nA kitchen alias is needed so you can walk into different kitchens (useful when managing multiple projects)'
                       kitchen_alias = str(raw_input("Input an alias for this kitchen : "))
 
@@ -108,14 +107,14 @@ class Build(Base):
 
                       config_ini_parser.set('kitchens', kitchen_alias, kitchen_ini_path)
 
-                      if 'utensil' not in config_ini_parser.sections(): #add new section to config.ini if it does not exist (utensil)
-                          config_ini_parser.add_section('utensil')
-                          config_ini_parser.set('utensil','auto-add','unset')
-                          config_ini_parser.set('utensil','auto-alias','unset')
+                      if 'utensils' not in config_ini_parser.sections(): #add new section to config.ini if it does not exist (utensils)
+                          config_ini_parser.add_section('utensils')
+                          config_ini_parser.set('utensils','auto-add','unset')
+                          config_ini_parser.set('utensils','auto-alias','unset')
             
 
                       with open(config_ini_path, 'w') as f: 
-                           #save new kitchen/utensil to config.ini
+                           #save new kitchen/utensils to config.ini
                            config_ini_parser.write(f)
                            f.close()
 
@@ -124,9 +123,8 @@ class Build(Base):
 
                       if 'blueprint' not in kitchen_ini_parser.sections(): #add new section to kitchen.ini if it does not exist (blueprint)
                           kitchen_ini_parser.add_section('blueprint')
-
-                      kitchen_ini_parser.set('blueprint','exclusions','unset')
-                      kitchen_ini_parser.set('blueprint','auto-append','unset')
+                          kitchen_ini_parser.set('blueprint','exclusions','unset')
+                          kitchen_ini_parser.set('blueprint','auto-append','unset')
                       
                       with open(kitchen_ini_path,'w') as f: 
                            #save new section (blueprint) to kitchen.ini
@@ -138,12 +136,12 @@ class Build(Base):
                       print termcolor.OKGREEN+kitchen_ini_path
                       print '+ [blueprint] exclusions = '+kitchen_ini_parser.get('blueprint','exclusions')
                       print '+ [blueprint] auto-append = '+kitchen_ini_parser.get('blueprint','auto-append')+'\n'
-                      print config_ini_path
+                      print 'kitchen-cli/kitchen/config.ini'
                       print '+ [kitchens] '+kitchen_alias+' = '+config_ini_parser.get('kitchens',kitchen_alias)
-                      print '+ [utensil] auto-add = '+config_ini_parser.get('utensil','auto-add')
-                      print '+ [utensil] auto-alias = '+config_ini_parser.get('utensil','auto-alias')+ termcolor.ENDC +'\n'
+                      print '+ [utensils] auto-add = '+config_ini_parser.get('utensils','auto-add')
+                      print '+ [utensils] auto-alias = '+config_ini_parser.get('utensils','auto-alias')+ termcolor.ENDC +'\n'
                       print ('All parameters values are configured to "unset" by default!')
-                      print ('You MUST edit the default parameters values inside kitchen.ini/config.ini manually - see https://github.com/globz/kitchen-cli for configuration help.\n')
+                      print ('You MUST edit the default parameters values inside kitchen.ini & config.ini manually - see https://github.com/globz/kitchen-cli for configuration help.\n')
                       break
 
                    else:
@@ -310,11 +308,9 @@ class Build(Base):
  
                     if 'oven' not in kitchen_ini_parser.sections(): #add new section to kitchen.ini if it does not exist (table)
                        kitchen_ini_parser.add_section('oven')
-
-
-                    kitchen_ini_parser.set('oven','auto-append','unset')
-                    kitchen_ini_parser.set('oven','auto-commit','unset')
-                    kitchen_ini_parser.set('oven','cookbook','unset')
+                       kitchen_ini_parser.set('oven','auto-append','unset')
+                       kitchen_ini_parser.set('oven','auto-commit','unset')
+                       kitchen_ini_parser.set('oven','cookbook','unset')
 
 
                     with open(kitchen_ini_path,'w') as f: #save new section (oven) to kitchen.ini

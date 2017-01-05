@@ -54,16 +54,17 @@ class Add(Base):
 
         print ('\nPlease type the desired kitchen alias so you can walk to the appropriate location... ')
 
-        if config_ini_parser.has_option('utensil','auto-alias'):
-           auto_alias = config_ini_parser.get('utensil','auto-alias') #retrieve value for utensil parameters :: auto-alias
+        if config_ini_parser.has_option('utensils','auto-alias'):
+           auto_alias = config_ini_parser.get('utensils','auto-alias') #retrieve value from utensil :: auto-alias
         
         if auto_alias =='unset':
            kitchen_alias = str(raw_input("Walk to kitchen alias : "))
+
        
         else:
-            #auto-alias is currently enabled so lets try this alias
+            #utensil auto-alias is currently enabled so lets try out this alias
             kitchen_alias = auto_alias
-            print termcolor.WARNING +'\nUtensil parameter :: auto-alis is currently enabled and the following alias has been select: '+auto_alias+termcolor.ENDC
+            print termcolor.WARNING +'\nUtensil :: auto-alias is currently enabled and the following alias has been select: '+auto_alias+termcolor.ENDC
 
         if config_ini_parser.has_option('kitchens',kitchen_alias):
            kitchen_ini_path = config_ini_parser.get('kitchens',kitchen_alias) #retrieve kitchen.ini from current selected kitchen alias
@@ -105,8 +106,8 @@ class Add(Base):
 
 
         else:
-            if config_ini_parser.has_option('utensil','auto-add'):
-               auto_add = config_ini_parser.get('utensil','auto-add') #retrieve value for utensil parameters :: auto-add
+            if config_ini_parser.has_option('utensils','auto-add'):
+               auto_add = config_ini_parser.get('utensils','auto-add') #retrieve value from utensil :: auto-add
 
             if auto_add =='unset':
                print 'The following ingredient has already been selected: '+termcolor.OKBLUE +ingredient+ termcolor.ENDC +'\nWould you like to add it to your table?'
@@ -122,10 +123,11 @@ class Add(Base):
                   print 'Aborting...'
                   raise SystemExit
 
+
             else:
-                #auto-add is currently enabled so lets copy the file without prompting for approval
+                #utensil auto-add is currently enabled so lets copy the file without prompting for approval
                 print 'The following ingredient has already been selected: '+termcolor.OKBLUE +ingredient+ termcolor.ENDC
-                print termcolor.WARNING +'\nUtensil parameter :: auto-add is currently enabled!'+termcolor.ENDC
+                print termcolor.WARNING +'\nUtensil :: auto-add is currently enabled! - skipping prompt!'+termcolor.ENDC
                 copyfile(ingredient,table_path+ingredient) #the ingredient is now safely copied to a kitchen table
                 print termcolor.OKGREEN +'\nYou added the following ingredient to your kitchen table: '+ingredient+ termcolor.ENDC
 

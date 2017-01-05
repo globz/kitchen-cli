@@ -104,3 +104,17 @@ _Each actions have a subset of objects that you can interact with within the cur
 
 > :bulb: `kitchen unfreeze` - roll back to a previous kitchen state by unfreezing the selected pastries from your freezer. 
                               This process will also remove all the files that did not exist prior to this update by reading from `recipe.ini`
+
+#utensils:
+
+**edit the following file to enable utensils : `kitchen/config.ini`**
+
+> :bulb: `auto-alias` - if this utensil is enabled each actions will automatically refer to this value when selecting a kitchen alias.
+                        default value : `unset`
+                        enabled value : `a valid kitchen alias`
+
+
+> :bulb: `auto-add`   - if this utensil is enabled it will automatically skip the `kitchen add ingredient` prompt asking you to confirm your current selection.
+                        default value : `unset`
+                        enabled value : `set` 
+
