@@ -12,6 +12,6 @@ class TestBuild(TestCase):
         lines = output.split('\n')
         self.assertTrue(len(lines) != 1)
 
-    def test_returns_hungry__for_pastries(self):
+    def test_returns_hungry_for_pastries(self):
         output = popen(['kitchen', 'build'], stdout=PIPE).communicate()[0]
         self.assertTrue('You are hungry for pastries...' in output)
