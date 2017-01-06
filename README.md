@@ -23,11 +23,12 @@ The following analogies are used by kitchen-cli :
 
 *  _kitchen_     -> your project folder
 *  _table_       -> a folder where you dump your ingredients
-*  _freezer_     -> a folder where you store your pastries
-*  _ingredients_ -> your project files used to update your kitchen
-*  _pastries_    -> your update files archived as a tarball
-*  _recipe_      -> config file used by your oven to cook your pastries
-*  _blueprint_   -> a complete backup of your kitchen
+*  _freezer_     -> a folder where you store your old pastries
+*  _ingredients_ -> your project files used to make new pastries and update your kitchen 
+*  _recipe_      -> config file used by your oven or freezer to either cook or unfreeze your pastries
+*  _pastries_    -> a group of patch files which either reside in your freezer (pre-patch) or kitchen (post-patch)
+*  _blueprint_   -> your kitchen foundation on which you will build upon
+*  _cookbook_    -> a master log of all recipe files and user actions
 
 ###Kitchen-cli user actions : 
 
@@ -42,6 +43,8 @@ The following analogies are used by kitchen-cli :
 > unfreeze
 
 > untensils
+
+> lookup
 
 _Each actions have a subset of objects that you can interact with within the current action context._
 
@@ -62,7 +65,7 @@ _Each actions have a subset of objects that you can interact with within the cur
 > :bulb: `build oven`    - lets you configure your oven so you can cook the perfect pastries for your taste.
 
 
-*Your kitchen is now ready to operate :fork_and_knife:*
+*Your kitchen is now almost ready to operate, you must configure it first! :fork_and_knife:*
 
 
 #add:
@@ -79,8 +82,9 @@ _Each actions have a subset of objects that you can interact with within the cur
 
 **execute this command to get a list of objects for this given action : `kitchen make`**
 
-> :bulb: `kitchen make blueprint` - lets you backup your whole kitchen and store the backup inside your freezer. 
-                                    This command is useful when you implement kitchen-cli to an existing project.
+
+> :bulb: `kitchen make blueprint` - This command is needed when you implement kitchen-cli to a new or existing project.
+                                    Blueprint will log all files path to your cookbook and this will serve as your foundation on which you will build upon.
 
 > :bulb: `kitchen make recipe` - analyze all the ingredients on your table and check if they already exist inside your kitchen, 
                                  if some ingredients are not found it will ask the user to input the full path to allocate the new 
@@ -89,6 +93,7 @@ _Each actions have a subset of objects that you can interact with within the cur
 
 *You can already smell the pastries, it is now time to cook :fire:*
 
+
 #cook:
 
 **execute this command to get a list of objects for this given action : `kitchen cook`**
@@ -96,7 +101,11 @@ _Each actions have a subset of objects that you can interact with within the cur
 *Cooking time! Please note that cooking pastries relies on your oven configuration.*
 
 
-> :bulb: `kitchen cook pastries` -  if `make recipe` returned "success", you will be able to move on and cook your pastries.                                                                               This will cook all the ingredients from your table and update your kitchen.                                                                                            This process will tarball the ingredients and `recipe.ini` then move them to                                                                                           your freezer. `cook pastries` will ask the user to input a name for this group of                                                                                      cooked pastries going into the freezer.
+> :bulb: `kitchen cook pastries` -  if `make recipe` returned "success", you will be able to move on and add the ingredients from your table to your oven. 
+                                    The process will begin by validating if an existing blueprint has ever been made and if none is found  it will proceed to make one. 
+                                    Finally, you can cook some delicious pastries! This process will tarball `recipe.ini` along with your existing pastries which are to be affected 
+                                    by your future pastries (post-patch) and move them to your freezer. Next, it will cook your new pastries and update your kitchen, your new pastries
+                                    are now placed inside your kitchen ready to be eaten!
 
 
 #unfreeze:
