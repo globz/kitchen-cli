@@ -22,8 +22,9 @@ class Utensils(Base):
               config_ini_path = os.path.join(dir,'..','config.ini') #path of config.ini      
               config_ini_parser.read(config_ini_path) #read from config.ini
 
-              if config_ini_parser.has_option('utensils','auto-alias'):
+              if config_ini_parser.has_section('utensils'):
                  print termcolor.OKGREEN +('TADAM! You are happy to find clean and organised utensils.')+ termcolor.ENDC
+                 #display a list of currently available utensils and their current value
                  print config_ini_parser.items('utensils')         
               
               else:
