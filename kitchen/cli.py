@@ -7,14 +7,14 @@ Usage:
   kitchen make  [<blueprint>,<recipe>]
   kitchen cook  [<pastries>]
   kitchen unfreeze
-  kitchen utensils
+  kitchen utensils 
   kitchen -h | --help
   kitchen --version
 
 Options:
   -h --help                         Show this screen.
   --version                         Show version.
-
+  
 Examples:
   kitchen build
 
