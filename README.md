@@ -113,11 +113,15 @@ _Each actions have a subset of objects that you can interact with within the cur
 **edit the following file to enable/disable utensils : `kitchen/config.ini`**
 
 > :bulb: `auto-alias` - if this utensil is enabled each actions will automatically refer to this value when selecting a kitchen alias.
+
                         default value : `unset`
+
                         enabled value : `a valid kitchen alias`
 
 
 > :bulb: `auto-add`   - if this utensil is enabled it will automatically skip the `kitchen add ingredient` prompt asking you to confirm your current selection.
+
                         default value : `unset`
+
                         enabled value : `set` 
 
