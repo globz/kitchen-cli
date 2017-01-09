@@ -44,7 +44,7 @@ The following analogies are used by kitchen-cli :
 
 > utensils
 
-> lookup
+> examine
 
 _Each actions have a subset of objects that you can interact with within the current action context._
 
