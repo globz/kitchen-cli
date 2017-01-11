@@ -2,12 +2,13 @@
 kitchen
 
 Usage:
-  kitchen build [<kitchen>,<table>,<freezer>,<oven>]
+  kitchen build [<kitchen>,<freezer>,<table>,<oven>]
   kitchen add   [<ingredients>]
   kitchen make  [<blueprint>,<recipe>]
   kitchen cook  [<pastries>]
+  kitchen examine [<freezer>,<table>]
   kitchen unfreeze
-  kitchen utensils 
+  kitchen utensils
   kitchen -h | --help
   kitchen --version
 

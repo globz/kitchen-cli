@@ -329,6 +329,7 @@ class Build(Base):
                     print ('You MUST edit the default parameters values inside kitchen.ini manually - see https://github.com/globz/kitchen-cli for configuration help.\n')
                     break
 
+
                if object == 'exit':
 
                     print ('Aborting...')
