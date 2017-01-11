@@ -73,12 +73,11 @@ class Examine(Base):
            else:
                if object == 'freezer':
 
-                  print ('\nPlease type the desired kitchen alias so you can walk to the appropriate location... ')
-
                   if config_ini_parser.has_option('utensils','auto-alias'):
                      auto_alias = config_ini_parser.get('utensils','auto-alias') #retrieve value from utensil :: auto-alias
         
                   if auto_alias =='unset':
+                     print ('\nPlease type the desired kitchen alias so you can walk to the appropriate location... ')
                      kitchen_alias = str(raw_input("Walk to kitchen alias : "))
 
 
@@ -109,7 +108,7 @@ class Examine(Base):
 
 
                   freezer_path = kitchen_ini_parser.get('freezer','path') #find freezer location for the selected kitchen alias
-                  print '\n'+termcolor.OKGREEN +'freezer located @ '+freezer_path+ termcolor.ENDC
+                  print '\nExamine '+termcolor.OKGREEN +'freezer located @ '+freezer_path+ termcolor.ENDC
 
                   print termcolor.WARNING +'You open the door of your freezer and you can see the following pastries...\n'+ termcolor.ENDC
            
@@ -120,12 +119,11 @@ class Examine(Base):
 
                if object == 'table':
                             
-                  print ('\nPlease type the desired kitchen alias so you can walk to the appropriate location... ')
-
                   if config_ini_parser.has_option('utensils','auto-alias'):
                      auto_alias = config_ini_parser.get('utensils','auto-alias') #retrieve value from utensil :: auto-alias
         
                   if auto_alias =='unset':
+                     print ('\nPlease type the desired kitchen alias so you can walk to the appropriate location... ')
                      kitchen_alias = str(raw_input("Walk to kitchen alias : "))
 
 
@@ -156,7 +154,7 @@ class Examine(Base):
 
 
                   table_path = kitchen_ini_parser.get('table','path') #find table location for the selected kitchen alias
-                  print '\n'+termcolor.OKGREEN +'table located @ '+table_path+ termcolor.ENDC
+                  print '\nExamine '+termcolor.OKGREEN +'table located @ '+table_path+ termcolor.ENDC
 
                   print termcolor.WARNING +'You slowly walk to your table and find the following ingredients...\n'+ termcolor.ENDC
            
